@@ -48,6 +48,7 @@ def build_database(folder, sqlite, tag):
     cursor = connection.cursor()
     cursor.execute("""create table if not exists fileinfos(tag, path, name, hash, size)""")
     for fileinfo in get_fileinfos(folder):
+        print(tag, str(fileinfo.path), fileinfo.name, fileinfo.hash, fileinfo.size)
         cursor.execute("""insert into fileinfos(tag, path, name, hash, size) values (?, ?, ?, ?, ?)""", (tag, str(fileinfo.path), fileinfo.name, fileinfo.hash, fileinfo.size))
     connection.commit()
     connection.close()
