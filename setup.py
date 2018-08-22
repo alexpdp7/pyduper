@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='pyduper',
-      packages=find_packages(),
+      py_modules=['pyduper'],
       extras_require={
         'dev': ['ipython', 'ipdb',],
       },
